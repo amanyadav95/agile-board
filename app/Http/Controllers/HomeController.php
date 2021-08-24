@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tasks = Task::get();
+        $tasks = Task::orderBy('order', 'asc')->get();
         return view('/agile',['tasks'=>$tasks]);
     }
 }

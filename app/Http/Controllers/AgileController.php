@@ -19,9 +19,13 @@ class AgileController extends Controller
 
     public function statusUpdade(Request $request)
     {
+        $order  = $request->order;
         $status = $request->status;
-        $id   = $request->taskid;
+        $id     = $request->taskid;
         Task::where('id',$id)->update(['status'=>$status]);
+        foreach ($order as $key => $taskid) {
+            Task::where('id',$taskid)->update(['order'=>$key]);
+        }
         return Response('');
     }
 }
