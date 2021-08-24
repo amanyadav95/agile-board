@@ -26,14 +26,17 @@
                     IN+
                 </div>
             </li>
-            <li>
+            <!-- <li>
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="dashboard_5.html">Dashboard v.5 <span class="label label-primary pull-right">NEW</span></a></li>
                 </ul>
+            </li> -->
+            <li>
+                <a href="/home"><i class="fa fa-laptop"></i> <span class="nav-label">Agile Board</span></a>
             </li>
             <li>
-                <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+                <a href="#"><i class="fa fa-folder-o"></i> <span class="nav-label">File Manager</span></a>
             </li>
         </ul>
     </div>

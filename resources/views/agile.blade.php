@@ -12,7 +12,7 @@
     </div>
 
 <div class="wrapper wrapper-content  animated fadeInRight">
-    <div class="row">
+    <div id="taskAll" class="row">
         <div  class="col-lg-4">
             <div class="ibox">
                 <div class="ibox-content">
@@ -30,11 +30,16 @@
                     <ul id="Todo" class="sortable-list connectList agile-list">
                         @foreach($tasks as $task)
                          @if($task->status === 'Todo')
-                            <li class="warning-element" data-id="{{$task->id}}">
-                                {{$task->tasks}}
+                            <li class="warning-element taskList" data-id="{{$task->id}}">
+                                <p class="taskP">{{$task->tasks}}</p>
                                 <div class="agile-detail">
-                                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
-                                    <i class="fa fa-clock-o"></i> {{$task->created_at}}
+                                    <a href="javascript:void(0);" class="pull-right btn btn-xs btn-white">Tag</a>
+                                    <i class="fa fa-clock-o"></i> <span>{{$task->created_at}}</span>
+                                </div>
+                                <div class="agile-detail">
+                                    <a href="javascript:void(0);" class="btn btn-xs btn-white editTsk" ><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-xs btn-white deleteTsk"><i class="fa fa-trash"></i></a>
+                                    <span class="updateTsk"></span>
                                 </div>
                             </li>
                          @endif
@@ -51,11 +56,16 @@
                     <ul id="InProgress" class="sortable-list connectList agile-list">
                         @foreach($tasks as $task)
                         @if($task->status === 'InProgress')
-                        <li class="success-element" data-id="{{$task->id}}">
-                            {{$task->tasks}}
+                        <li class="success-element taskList" data-id="{{$task->id}}">
+                            <p class="taskP">{{$task->tasks}}</p>
                             <div class="agile-detail">
-                                <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
-                                <i class="fa fa-clock-o"></i> {{$task->created_at}}
+                                <a href="javascript:void(0);" class="pull-right btn btn-xs btn-white">Tag</a>
+                                <i class="fa fa-clock-o"></i> <span>{{$task->created_at}}</span>
+                            </div>
+                            <div class="agile-detail">
+                                <a href="javascript:void(0);" class="btn btn-xs btn-white editTsk" ><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-xs btn-white deleteTsk" ><i class="fa fa-trash"></i></a>
+                                <span class="updateTsk"></span>
                             </div>
                         </li>
                         @endif
@@ -72,11 +82,16 @@
                     <ul id="Completed" class="sortable-list connectList agile-list">
                         @foreach($tasks as $task)
                         @if($task->status === 'Completed')
-                        <li class="info-element" data-id="{{$task->id}}">
-                            {{$task->tasks}}
+                        <li class="info-element taskList" data-id="{{$task->id}}">
+                            <p class="taskP">{{$task->tasks}}</p>
                             <div class="agile-detail">
-                                <a href="#" class="pull-right btn btn-xs btn-white">Mark</a>
-                                <i class="fa fa-clock-o"></i> {{$task->created_at}}
+                                <a href="javascript:void(0);" class="pull-right btn btn-xs btn-white">Mark</a>
+                                <i class="fa fa-clock-o"></i> <span>{{$task->created_at}}</span>
+                            </div>
+                            <div class="agile-detail">
+                                <a href="javascript:void(0);" class="btn btn-xs btn-white editTsk" ><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-xs btn-white deleteTsk" ><i class="fa fa-trash"></i></a>
+                                <span class="updateTsk"></span>
                             </div>
                         </li>
                         @endif

@@ -16,6 +16,7 @@
 
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/custome.css" rel="stylesheet">
     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 
 

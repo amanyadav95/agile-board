@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/addtask', [App\Http\Controllers\AgileController::class, 'addtask']);
 Route::post('/status', [App\Http\Controllers\AgileController::class, 'statusUpdade']);
+Route::post('/updateTask', [App\Http\Controllers\AgileController::class, 'taskUpdate']);
+Route::post('/deleteTask', [App\Http\Controllers\AgileController::class, 'taskDelete']);

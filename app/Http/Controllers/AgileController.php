@@ -9,11 +9,14 @@ class AgileController extends Controller
 {
     public function addtask(Request $request)
     {
-        $newtask = new Task;
-        $newtask->tasks = $request->newtask;
-        $newtask->status = ('Todo');
-        $newtask->order = ('');
-        $newtask->save();
+        $validated = $request->newtask;
+        if ($validated) {
+            $newtask = new Task;
+            $newtask->tasks = $request->newtask;
+            $newtask->status = ('Todo');
+            $newtask->order = ('');
+            $newtask->save();
+        }
         return redirect('/home');
     }
 
@@ -26,6 +29,21 @@ class AgileController extends Controller
         foreach ($order as $key => $taskid) {
             Task::where('id',$taskid)->update(['order'=>$key]);
         }
-        return Response('');
+        return response('');
+    }
+
+    public function taskUpdate(Request $request)
+    {
+        $id = $request->edtId;
+        $task = $request->edtTsk;
+        Task::where('id',$id)->update(['tasks'=>$task]);
+        return response('');
+    }
+
+    public function taskDelete(Request $request)
+    {
+        $id = $request->edtId;
+        Task::where('id',$id)->delete();
+        return response('');
     }
 }
