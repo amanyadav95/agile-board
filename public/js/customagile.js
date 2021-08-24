@@ -19,7 +19,7 @@ $(document).ready(function(){
                  if(status=='Completed'){
                      var order = $("#Completed").sortable("toArray",{ attribute: 'data-id' });
                  }
-
+dsd
                 console.log(order);
             $.ajax({
                 type : "POST",
