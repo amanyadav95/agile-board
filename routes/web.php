@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::post('/addtask', [App\Http\Controllers\AgileController::class, 'addtask']);
 Route::post('/status', [App\Http\Controllers\AgileController::class, 'statusUpdade']);
 Route::post('/updateTask', [App\Http\Controllers\AgileController::class, 'taskUpdate']);
 Route::post('/deleteTask', [App\Http\Controllers\AgileController::class, 'taskDelete']);
+Route::get('/file-manager', [App\Http\Controllers\FileManagerController::class, 'FileManager'])->middleware('auth');
+Route::post('/file-uplode', [App\Http\Controllers\FileManagerController::class, 'fileUplode']);

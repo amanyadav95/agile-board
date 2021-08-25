@@ -36,7 +36,7 @@
                 <a href="/home"><i class="fa fa-laptop"></i> <span class="nav-label">Agile Board</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-folder-o"></i> <span class="nav-label">File Manager</span></a>
+                <a href="/file-manager"><i class="fa fa-folder-o"></i> <span class="nav-label">File Manager</span></a>
             </li>
         </ul>
     </div>
