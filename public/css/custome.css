@@ -6,3 +6,18 @@
 .editTaskBtn{
     float:right;
 }
+.namespan{
+  /* white-space: nowrap;
+  overflow: hidden!important;
+  text-overflow: ellipsis;
+  max-width: 50px; */
+ display: block;
+ width: 180px;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+.galleryscroll{
+ overflow-y:scroll;
+ height:510px;
+}

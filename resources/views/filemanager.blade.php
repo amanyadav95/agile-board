@@ -16,15 +16,15 @@
                     <div class="ibox-content" style="padding-bottom:390px;">
                         <div class="file-manager">
                             <h5>Show:</h5>
-                            <a href="#" class="file-control active">All</a>
-                            <a href="#" class="file-control">Documents</a>
-                            <a href="#" class="file-control">Audio</a>
-                            <a href="#" class="file-control">Images</a>
+                            <a id="all" href="/file-manager" class="file-control active">All</a>
+                            <a id = "documents" href="/file-manager?filter=docs" class="file-control">Documents</a>
+                            <a id="audio" href="/file-manager?filter=audio" class="file-control">Audio</a>
+                            <a id ="images" href="/file-manager?filter=image" class="file-control">Images</a>
                             <div class="hr-line-dashed"></div>
                             <form class="" action="/file-uplode" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="file" name="file" id="fileToUpload">
-                                <input type="submit" value="Upload Image" name="submit">
+                                <input type="file" name="file" accept="audio/*,image/*,.doc,.docx,.pdf,.ods,.ppt,.txt" id="fileToUpload">
+                                <input type="submit" value="Upload File" name="submit">
                             </form>
                             <!-- <div class="hr-line-dashed"></div>
                             <h5>Folders</h5>
@@ -53,22 +53,29 @@
                 </div>
             </div>
             <div class="col-lg-9 animated fadeInRight">
-                <img src="/JfXd6EfBH4pAvnPzyRAsh9kYtK9CcDJgv4eNaSzZ.png" alt="">
+                <img src="" alt="">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div id="fileDiv" class="col-lg-12 galleryscroll">
                         @foreach($files as $file)
                         <div class="file-box">
                               <div class="file">
                                   <a href="{{$file->filepath}}">
-                                      <span class="corner"></span>
+                                          @if($file->extension =='bmp'||$file->extension == 'jpg'||$file->extension =='jpeg'||$file->extension =='gif'||$file->extension =='png'||$file->extension =='eps')
+                                          <div class="image">
+                                            <img alt="image" class="img-responsive" src="{{$file->filepath}}">
+                                          </div>
+                                          @else
+                                          <div class="icon">
+                                            <i class="fa fa-file"></i>
+                                          </div>
+                                          @endif
                                       <div class="file-name">
-                                          {{$file->filename}}
+                                          <span class="namespan">{{$file->filename}}</span>
                                           <br/>
                                           <small>{{$file->created_at}}</small>
                                       </div>
                                   </a>
                               </div>
-
                           </div>
                         @endforeach
                     </div>
