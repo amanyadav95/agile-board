@@ -38,6 +38,9 @@
             <li>
                 <a href="/file-manager"><i class="fa fa-folder-o"></i> <span class="nav-label">File Manager</span></a>
             </li>
+            <li>
+                <a href="/file-manager-java"><i class="fa fa-folder-o"></i> <span class="nav-label">File Manager Java</span></a>
+            </li>
         </ul>
     </div>
 </nav>

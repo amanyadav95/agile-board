@@ -72,10 +72,124 @@ $(document).ready(function(){
         });
     });
 
-// Script For File Manager
+// File Manager start
 
+function allFiles(filter = '') {
+    $("#fileDiv").html('');
+    $.ajax({
+        type    : "get",
+        url     : '/get-all-files?filter='+filter,
+        success : function(data) {
+                    $.each(data,function(index,file) {
+                        if (file.extension=='bmp'||file.extension == 'jpg'||file.extension =='jpeg'||file.extension =='gif'||file.extension =='png'||file.extension =='eps') {
+                            var filediv = `<div class="file-box">
+                                              <div class="file">
+                                                  <a href="`+file.filepath+`">
+                                                      <div class="image">
+                                                        <img alt="image" class="img-responsive" src="`+file.filepath+`">
+                                                      </div>
+                                                      <div class="file-name">
+                                                          <span class="namespan">`+file.filename+`</span>
+                                                          <br/>
+                                                          <small class="floatright">`+file.extension+`</small>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                          </div>`;
+                        }
+                        else {
+                            var filediv = `<div class="file-box">
+                                              <div class="file">
+                                                  <a href="`+file.filepath+`">
+                                                          <div class="icon">
+                                                            <i class="fa fa-file"></i>
+                                                          </div>
+                                                      <div class="file-name">
+                                                          <span class="namespan">`+file.filename+`</span>
+                                                          <br/>
+                                                          <small class="floatright">`+file.extension+`</small>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                          </div>`;
+                        }
+                    $("#fileDiv").append(filediv);
+                    })
+        }
+    });
+};
 
+allFiles();
 
+    // AjaxForm File Store
+    $("#fileToUpload").change(function(){
+        $("#file-upload").submit();
+    });
+    // Get last Uplod file
+    $('#file-upload').ajaxForm({
+        url: '/ajax-file-upload',
+        type: 'post',
+        success:function(data) {
+            $.each(data,function(index,file) {
+                if (file.extension=='bmp'||file.extension == 'jpg'||file.extension =='jpeg'||file.extension =='gif'||file.extension =='png'||file.extension =='eps') {
+                    var filediv = `<div class="file-box">
+                                      <div class="file">
+                                          <a href="`+file.filepath+`">
+                                              <div class="image">
+                                                <img alt="image" class="img-responsive" src="`+file.filepath+`">
+                                              </div>
+                                              <div class="file-name">
+                                                  <span class="namespan">`+file.filename+`</span>
+                                                  <br/>
+                                                  <small class="floatright">`+file.extension+`</small>
+                                              </div>
+                                          </a>
+                                      </div>
+                                  </div>`;
+                }
+                else {
+                    var filediv = `<div class="file-box">
+                                      <div class="file">
+                                          <a href="`+file.filepath+`">
+                                                  <div class="icon">
+                                                    <i class="fa fa-file"></i>
+                                                  </div>
+                                              <div class="file-name">
+                                                  <span class="namespan">`+file.filename+`</span>
+                                                  <br/>
+                                                  <small class="floatright">`+file.extension+`</small>
+                                              </div>
+                                          </a>
+                                      </div>
+                                  </div>`;
+                }
+            $("#fileDiv").append(filediv);
+            })
+            $("#file-upload")[0].reset();
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton : true,
+                    progressBar : true,
+                    showMethod  : 'slideDown',
+                    timeOut     : 2000
+                };
+                toastr.success('File Uploded');
 
+            });
+        }
+        });
+    //Set filter
+    $("#documents").click(function() {
+        allFiles('docs');
+    });
+    $("#images").click(function() {
+        allFiles('image');
+    });
+    $("#audio").click(function() {
+        allFiles('audio');
+    });
+    $("#all").click(function() {
+        allFiles();
+    });
 
 });

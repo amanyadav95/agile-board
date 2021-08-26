@@ -26,3 +26,8 @@ Route::post('/updateTask', [App\Http\Controllers\AgileController::class, 'taskUp
 Route::post('/deleteTask', [App\Http\Controllers\AgileController::class, 'taskDelete']);
 Route::get('/file-manager', [App\Http\Controllers\FileManagerController::class, 'fileManager'])->middleware('auth');
 Route::post('/file-uplode', [App\Http\Controllers\FileManagerController::class, 'fileUplode']);
+// for fileManagerJava
+Route::get('/file-manager-java', [App\Http\Controllers\FileJavaController::class, 'fileJava'])->middleware('auth');
+Route::post('/ajax-file-upload', [App\Http\Controllers\FileJavaController::class, 'fileUplode']);
+Route::get('/get-all-files', [App\Http\Controllers\FileJavaController::class, 'allFile']);
+Route::post('/filters', [App\Http\Controllers\FileJavaController::class, 'allFile']);

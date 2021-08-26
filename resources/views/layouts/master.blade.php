@@ -52,6 +52,9 @@
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
     <script src="/js/customagile.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
 </body>
 
 </html>
