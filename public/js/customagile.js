@@ -84,7 +84,7 @@ function allFiles(filter = '') {
                         if (file.extension=='bmp'||file.extension == 'jpg'||file.extension =='jpeg'||file.extension =='gif'||file.extension =='png'||file.extension =='eps') {
                             var filediv = `<div class="file-box">
                                               <div class="file">
-                                                  <a href="`+file.filepath+`">
+                                                  <a href="`+file.filepath+`" target="_blank">
                                                       <div class="image">
                                                         <img alt="image" class="img-responsive" src="`+file.filepath+`">
                                                       </div>
@@ -100,7 +100,7 @@ function allFiles(filter = '') {
                         else {
                             var filediv = `<div class="file-box">
                                               <div class="file">
-                                                  <a href="`+file.filepath+`">
+                                                  <a href="`+file.filepath+`" target="_blank">
                                                           <div class="icon">
                                                             <i class="fa fa-file"></i>
                                                           </div>
@@ -134,7 +134,7 @@ allFiles();
                 if (file.extension=='bmp'||file.extension == 'jpg'||file.extension =='jpeg'||file.extension =='gif'||file.extension =='png'||file.extension =='eps') {
                     var filediv = `<div class="file-box">
                                       <div class="file">
-                                          <a href="`+file.filepath+`">
+                                          <a href="`+file.filepath+`" target="_blank">
                                               <div class="image">
                                                 <img alt="image" class="img-responsive" src="`+file.filepath+`">
                                               </div>
@@ -150,7 +150,7 @@ allFiles();
                 else {
                     var filediv = `<div class="file-box">
                                       <div class="file">
-                                          <a href="`+file.filepath+`">
+                                          <a href="`+file.filepath+`" target="_blank">
                                                   <div class="icon">
                                                     <i class="fa fa-file"></i>
                                                   </div>

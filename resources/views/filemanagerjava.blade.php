@@ -23,7 +23,7 @@
                             <div class="hr-line-dashed"></div>
                             <form id="file-upload" action="/ajax-file-upload" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <label class="btn fileUpload btn-default btn btn-primary btn-block">
+                                <label class="btn fileUpload btn-default btnFile btn-primary btn-block">
                                 Upload Files <input type="file" name="file" accept="audio/*,image/*,.doc,.docx,.pdf,.ods,.ppt,.txt" id="fileToUpload" hidden="" >
                                 </label>
                             </form>

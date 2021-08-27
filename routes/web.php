@@ -30,4 +30,3 @@ Route::post('/file-uplode', [App\Http\Controllers\FileManagerController::class, 
 Route::get('/file-manager-java', [App\Http\Controllers\FileJavaController::class, 'fileJava'])->middleware('auth');
 Route::post('/ajax-file-upload', [App\Http\Controllers\FileJavaController::class, 'fileUplode']);
 Route::get('/get-all-files', [App\Http\Controllers\FileJavaController::class, 'allFile']);
-Route::post('/filters', [App\Http\Controllers\FileJavaController::class, 'allFile']);

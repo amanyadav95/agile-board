@@ -28,7 +28,7 @@
 .fileUpload input[type=file]{
     display:none;
 }
-.btn{
+.btnFile{
     background-color:#1ab394;
     color:#FFFFFF;
     border:1px solid #1ab394;;
